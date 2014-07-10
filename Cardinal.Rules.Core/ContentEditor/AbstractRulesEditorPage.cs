@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Web.UI.WebControls;
 using Cardinal.Rules.Core.QueryManagement;
@@ -51,47 +52,6 @@ namespace Cardinal.Rules.Core.ContentEditor
         /// </summary>
         protected HyperLink TestButton { get; set; }
 
-        /// <summary>
-        ///     The create rule if not exists.
-        /// </summary>
-        /// <param name="ruleId">
-        ///     The rule id.
-        /// </param>
-        /// <param name="rulesDefinition">
-        ///     The rules definition.
-        /// </param>
-        protected virtual void CreateRuleIfNotExists(Guid ruleId, RulesDefinition rulesDefinition)
-        {
-            Assert.ArgumentNotNull(rulesDefinition, "rulesDefinition");
-            if (rulesDefinition.GetRule(ruleId) != null)
-            {
-                return;
-            }
-
-            rulesDefinition.AddRule(ruleId);
-        }
-
-        /// <summary>
-        ///     The get rule id from request.
-        /// </summary>
-        /// <returns>
-        ///     The <see cref="Guid" />.
-        /// </returns>
-        protected virtual Guid GetRuleIdFromRequest()
-        {
-            string formValue = WebUtil.GetFormValue("RuleId");
-            if (!string.IsNullOrEmpty(formValue))
-            {
-                CurrentRuleId = ShortID.DecodeID(formValue).ToGuid();
-            }
-
-            if (CurrentRuleId == Guid.Empty)
-            {
-                CurrentRuleId = Guid.NewGuid();
-            }
-
-            return CurrentRuleId;
-        }
 
         /// <summary>
         ///     The on initialization event.
@@ -118,20 +78,6 @@ namespace Cardinal.Rules.Core.ContentEditor
         }
 
         /// <summary>
-        /// The render rules.
-        /// </summary>
-        /// <param name="document">
-        /// The document.
-        /// </param>
-        /*protected virtual void RenderRules(XDocument document)
-        {
-            Assert.ArgumentNotNull(document, "document");
-            string str = document.ToString();
-            Rules = str;
-            RenderRules(str);
-        }*/
-
-        /// <summary>
         ///     The setup test action.
         /// </summary>
         protected virtual void SetupTestAction()
@@ -148,9 +94,6 @@ namespace Cardinal.Rules.Core.ContentEditor
         {
             RulesEditorOptions options = RulesEditorOptions.Parse();
 
-            Guid ruleIdFromRequest = GetRuleIdFromRequest();
-            var rulesDefinition = new RulesDefinition(Rules);
-            CreateRuleIfNotExists(ruleIdFromRequest, rulesDefinition);
             // RenderRules(rulesDefinition.Document);
 
             if (string.IsNullOrEmpty(Rules))
@@ -159,9 +102,7 @@ namespace Cardinal.Rules.Core.ContentEditor
                 return;
             }
 
-            Item contextItem = Sitecore.Context.ContentDatabase.GetItem(new ID(options.ContextItemID));
-
-            ValueRuleContext context = new ValueRuleContext(null, QueryManager.GetDefaultValues(contextItem));
+            ValueRuleContext context = new ValueRuleContext(null, new Dictionary<string, string>()); // QueryManager.GetDefaultValues(contextItem);
             RuleList<ValueRuleContext> rulesList = RuleFactory.ParseRules<ValueRuleContext>(Sitecore.Context.ContentDatabase, Rules);
 
             rulesList.Run(context);

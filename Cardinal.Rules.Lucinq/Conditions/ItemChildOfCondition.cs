@@ -1,6 +1,5 @@
-﻿using Cardinal.Rules.Core;
-using Cardinal.Rules.Core.Conditions;
-using Lucinq.Core.Enums;
+﻿using Cardinal.Rules.Core.Conditions;
+using Lucinq.Enums;
 using Lucinq.SitecoreIntegration.Querying.Interfaces;
 using Sitecore.Data;
 using Sitecore.Rules;

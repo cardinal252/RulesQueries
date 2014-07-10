@@ -3,9 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using Cardinal.Core.Data;
 using Cardinal.Core.IoC;
-using Cardinal.Rules.Core;
 using Cardinal.Rules.Core.Conditions;
-using Lucinq.Core.Enums;
 using Lucinq.SitecoreIntegration.Extensions;
 using Lucinq.SitecoreIntegration.Querying.Interfaces;
 using Sitecore.Rules;
@@ -69,23 +67,23 @@ namespace Cardinal.Rules.Lucinq.Conditions
             switch (conditionOperator)
             {
                 case ConditionOperator.Equal:
-                    queryBuilder.Field(fieldName, luceneDateTime, this.Matches);
+                    queryBuilder.Field(fieldName, luceneDateTime, Matches);
                     break;
                 case ConditionOperator.GreaterThanOrEqual:
                     queryBuilder.TermRange(fieldName, luceneDateTime, DateTime.MaxValue.ToString("yyyyMMdd"), true, true,
-                        this.Matches);
+                        Matches);
                     break;
                 case ConditionOperator.GreaterThan:
                     queryBuilder.TermRange(fieldName, luceneDateTime, DateTime.MaxValue.ToString("yyyyMMdd"), false,
-                        true, this.Matches);
+                        true, Matches);
                     break;
                 case ConditionOperator.LessThanOrEqual:
                     queryBuilder.TermRange(fieldName, DateTime.MinValue.ToString("yyyyMMdd"), luceneDateTime, true, true,
-                        this.Matches);
+                        Matches);
                     break;
                 case ConditionOperator.LessThan:
                     queryBuilder.TermRange(fieldName, DateTime.MinValue.ToString("yyyyMMdd"), luceneDateTime, true,
-                        false, this.Matches);
+                        false, Matches);
                     break;
             }
         }

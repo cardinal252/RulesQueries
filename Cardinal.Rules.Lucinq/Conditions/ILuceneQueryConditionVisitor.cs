@@ -1,5 +1,4 @@
 ﻿using Cardinal.Rules.Core.Builders;
-using Lucinq.Core.Enums;
 using Lucinq.Enums;
 using Lucinq.SitecoreIntegration.Querying.Interfaces;
 

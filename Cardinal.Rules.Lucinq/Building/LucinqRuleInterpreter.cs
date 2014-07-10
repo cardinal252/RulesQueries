@@ -2,7 +2,7 @@
 using Cardinal.Rules.Core.Builders;
 using Cardinal.Rules.Core.Enums;
 using Cardinal.Rules.Lucinq.Conditions;
-using Lucinq.Core.Enums;
+using Lucinq.Enums;
 using Lucinq.SitecoreIntegration.Querying;
 using Lucinq.SitecoreIntegration.Querying.Interfaces;
 using Sitecore.Rules;

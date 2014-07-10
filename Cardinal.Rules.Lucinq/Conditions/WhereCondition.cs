@@ -1,9 +1,8 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using Cardinal.Core.Data;
 using Cardinal.Core.IoC;
-using Cardinal.Rules.Core;
 using Cardinal.Rules.Core.Conditions;
-using Lucinq.Core.Enums;
+using Lucinq.Enums;
 using Lucinq.SitecoreIntegration.Querying.Interfaces;
 using Sitecore.Data;
 using Sitecore.Rules;
@@ -68,7 +67,7 @@ namespace Cardinal.Rules.Lucinq.Conditions
 
             if (value.Contains(" "))
             {
-                queryBuilder.Keyword(fieldName, Value, this.Matches);
+                queryBuilder.Keyword(fieldName, Value, Matches);
                 return;
             }
 
@@ -92,11 +91,11 @@ namespace Cardinal.Rules.Lucinq.Conditions
             ID id;
             if (ID.TryParse(Value, out id))
             {
-                queryBuilder.Field(fieldName, id, this.Matches);
+                queryBuilder.Field(fieldName, id, Matches);
                 return;
             }
 
-            queryBuilder.Field(fieldName, value, this.Matches);
+            queryBuilder.Field(fieldName, value, Matches);
         }
 
         /// <summary>

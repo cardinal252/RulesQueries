@@ -2,7 +2,7 @@
 using Cardinal.Rules.Core.Options;
 using Cardinal.Rules.Core.Results;
 using Cardinal.Rules.Lucinq.Building;
-using Lucinq.Core.Interfaces;
+using Lucinq.Interfaces;
 using Lucinq.SitecoreIntegration.Querying.Interfaces;
 using Sitecore.Data.Items;
 using Sitecore.Rules;
@@ -17,8 +17,8 @@ namespace Cardinal.Rules.Lucinq.ResultsProviders
 
         public RulesResultProvider(RuleList<ValueRuleContext> rulesList, ILucinqSearchRepository lucinqSearchRepository)
         {
-            this.rulesList = rulesList;
-            this.lucinqSearchRepository = lucinqSearchRepository;
+            rulesList = rulesList;
+            lucinqSearchRepository = lucinqSearchRepository;
         }
 
         public IRulesSearchResult<Item> GetResults(ISearchOptions options, ValueRuleContext context)

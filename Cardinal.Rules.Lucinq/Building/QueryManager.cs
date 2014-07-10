@@ -8,7 +8,7 @@ using Cardinal.Rules.Core.Options;
 using Cardinal.Rules.Core.QueryManagement;
 using Cardinal.Rules.Core.Results;
 using Cardinal.Rules.Lucinq.Building;
-using Lucinq.Core.Interfaces;
+using Lucinq.Interfaces;
 using Lucinq.SitecoreIntegration.Querying.Interfaces;
 using Sitecore.Data.Fields;
 using Sitecore.Data.Items;

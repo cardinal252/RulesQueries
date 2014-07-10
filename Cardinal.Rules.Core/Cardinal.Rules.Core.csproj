@@ -37,10 +37,12 @@
     <Reference Include="Lucene.Net">
       <HintPath>..\..\Lucinq.Sitecore\Libraries\Sitecore7\Lucene.Net.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.Client">
-      <HintPath>..\Websites\Cardinal.Sitecore.Platform\bin\Sitecore.Client.dll</HintPath>
+    <Reference Include="Sitecore.Client, Version=7.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Cardinal.Sitecore\Websites\Cardinal.Platform\bin\Sitecore.Client.dll</HintPath>
     </Reference>
-    <Reference Include="Sitecore.Kernel">
+    <Reference Include="Sitecore.Kernel, Version=7.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Cardinal.Sitecore\Websites\Cardinal.Platform\bin\Sitecore.Kernel.dll</HintPath>
     </Reference>
     <Reference Include="sitecore.nexus">

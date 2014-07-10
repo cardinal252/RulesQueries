@@ -1,5 +1,5 @@
 ﻿using Cardinal.Rules.Core.Options;
-using Lucinq.Core.Interfaces;
+using Lucinq.Interfaces;
 using Lucinq.SitecoreIntegration.Querying;
 using Lucinq.SitecoreIntegration.Querying.Interfaces;
 
