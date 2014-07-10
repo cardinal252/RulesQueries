@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Cardinal.Core7</id>
+    <version>0.1</version>
+    <title>Cardinal Core Sitecore Extensions</title>
+    <authors>cardinal252</authors>
+    <owners>cardinal252</owners>
+    <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
+    <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
+    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A series of core extensions for sitecore</description>
+    <summary />
+    <releaseNotes />
+    <copyright>Copyright 2014</copyright>
+    <tags>Cardinal Sitecore</tags>
+  </metadata>
+</package>
